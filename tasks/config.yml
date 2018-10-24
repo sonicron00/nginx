@@ -26,7 +26,7 @@
 - name: Symlink virtual hosts
   file:
     src: "{{ item.path }}"
-    dest: /etc/nginx/sites-enabld/"{{ item.path | basename }}"
+    dest: /etc/nginx/sites-enabled/"{{ item.path | basename }}"
     state: link
   when: virtual_host_configs.matched > 0
   with_items: virtual_host_configs.files
