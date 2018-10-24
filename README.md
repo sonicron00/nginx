@@ -1,4 +1,4 @@
-Consul
+Nginx
 =========
 Designed to only install nginx and give you full controll over the configuration.
 
