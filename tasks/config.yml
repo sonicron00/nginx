@@ -20,7 +20,7 @@
 
 - name: Verify virtual host configs
   command: nginx -t
-  when: nginx_verify_virtual_host_configs = true
+  when: nginx_verify_virtual_host_configs == true
 
 - name: Find all virtual host configs
   find:
