@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  author: Grant Neal
+  description: Installs nginx with full config control
+  company: Entanet
+
+  license: BSD
+
+  min_ansible_version: 2.5
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+
+  galaxy_tags:
+    - nginx
+    - webserver
+    - entanet
+
+dependencies: []
