@@ -1,0 +1,3 @@
+---
+nginx_config: false
+nginx_delete_default_virtual_host: true
