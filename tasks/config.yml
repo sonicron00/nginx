@@ -14,8 +14,11 @@
 
 - name: Delete default virtual host
   file:
-    path: /etc/nginx/sites-available/default
+    path: "{{ item }}"
     state: absent
+  with_items:
+    - /etc/nginx/sites-available/default
+    - /etc/nginx/sites-enabled/default
   when: nginx_delete_default_virtual_host == true
 
 - name: Verify virtual host configs
