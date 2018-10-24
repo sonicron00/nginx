@@ -18,6 +18,10 @@
     state: absent
   when: nginx_delete_default_virtual_host == true
 
+- name: Verify virtual host configs
+  command: nginx -t
+  when: nginx_verify_virtual_host_configs = true
+
 - name: Find all virtual host configs
   find:
     paths: /etc/nginx/sites-available

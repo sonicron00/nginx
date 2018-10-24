@@ -9,11 +9,15 @@ Role Variables
 
     nginx_config (Default False)
 
-Will give the ability to set the nginx config using a config placed in the templates/ directory
+Will give the ability to set the nginx config using a config placed in the templates/ directory.
 
     nginx_delete_default_virtual_host (Default True)
 
 Will delete the default virtual host if set to true. Set to false to keep it.
+
+    nginx_verify_virtual_host_configs (Default True)
+
+Will verify the virtual host configs. Set to false if this is not required.
 
 Virtual Hosts
 -------------
@@ -25,4 +29,4 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - entanet-devops.ansible-nginx
+         - entanet-devops.nginx
