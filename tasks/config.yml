@@ -9,7 +9,7 @@
 - name: Copy virtual host config
   template:
     src: "{{ item }}"
-    dest: /etc/nginx/sites-available/"{{ item | basename | regex_replace('\.j2','') }}"
+    dest: /etc/nginx/sites-available/{{ item | basename | regex_replace('\.j2','') }}
   with_fileglob: "{{ playbook_dir }}/templates/nginx/*.j2"
 
 - name: Delete default virtual host
@@ -33,9 +33,9 @@
 - name: Symlink virtual hosts
   file:
     src: "{{ item.path }}"
-    dest: /etc/nginx/sites-enabled/"{{ item.path | basename }}"
+    dest: /etc/nginx/sites-enabled/{{ item.path | basename }}
     state: link
   when: virtual_host_configs.matched > 0
-  with_items: virtual_host_configs.files
+  with_items: "{{ virtual_host_configs.files }}"
   notify: reload nginx
   
