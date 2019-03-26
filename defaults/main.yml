@@ -1,4 +1,4 @@
 ---
-nginx_config: false
+nginx_config: true
 nginx_delete_default_virtual_host: true
 nginx_verify_virtual_host_configs: true

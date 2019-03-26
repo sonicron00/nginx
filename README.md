@@ -7,7 +7,7 @@ Only tested on Ubuntu 18.04.
 Role Variables
 --------------
 
-    nginx_config (Default False)
+    nginx_config (Default True)
 
 Will give the ability to set the nginx config using a config placed in the templates/ directory.
 
