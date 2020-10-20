@@ -6,6 +6,25 @@
   notify: restart nginx
   when: nginx_config == true 
 
+- name: Create sites-available and sites-enabled directories as vanilla nginx doesnt have them
+  file:
+      path: "/etc/nginx/{{ item }}"
+      state: directory
+  with_items:
+     - sites-available
+     - sites-enabled
+     - snippets
+
+- name: Create nginx default fcgi config
+  template:
+    src: fastcgi.conf.j2
+    dest: /etc/nginx/fastcgi.conf
+
+- name: Create FPM config snippet
+  template:
+    src: fastcgi-php.conf.j2
+    dest: /etc/nginx/snippets/fastcgi-php.conf
+
 - name: Copy virtual host config
   template:
     src: "{{ item }}"
